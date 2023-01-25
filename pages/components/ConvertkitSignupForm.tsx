@@ -1,4 +1,5 @@
 import { FormEventHandler, useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const ConvertkitSignupForm: React.FC<
   React.PropsWithChildren<{
@@ -10,6 +11,7 @@ const ConvertkitSignupForm: React.FC<
     email: "email",
   };
   const [success, setSuccess] = useState<boolean | undefined>();
+  const { t } = useTranslation("common");
 
   const onSubmit: FormEventHandler = useCallback(
     async (event) => {
@@ -72,7 +74,7 @@ const ConvertkitSignupForm: React.FC<
           className="w-full rounded-md px-3 py-2 text-base md:text-lg text-black"
           name={formData.name}
           aria-label="Name"
-          placeholder="Your name"
+          placeholder={t("name_input_placeholder") as any}
           required
         />
         <input
@@ -80,12 +82,12 @@ const ConvertkitSignupForm: React.FC<
           className="w-full rounded-md px-3 py-2 text-base md:text-lg text-black"
           name={formData.email}
           aria-label="Email"
-          placeholder="your@email.com"
+          placeholder={t("email_input_placeholder") as any}
           required
         />
 
         <button className="bg-blue-600 min-w-[6rem] rounded-md text-lg md:text-xl font-bold py-2">
-          {children ?? "Sign up"}
+          {children ?? t("submit_button_text")}
         </button>
       </form>
     </>
