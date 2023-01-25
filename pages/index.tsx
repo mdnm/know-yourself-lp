@@ -143,7 +143,7 @@ export default function Home() {
                 alt="Matteo Corapi"
               />
             </div>
-            <div className="self-stretch flex flex-col justify-center items-center">
+            <div className="ml-2 self-stretch flex flex-col justify-center items-center">
               <strong className="text-lg">Conheça o Matteo!</strong>
               <p className="flex flex-col gap-2">
                 <span>
