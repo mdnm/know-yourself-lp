@@ -5,7 +5,7 @@ export default function ConvertkitForm() {
   return (
     <form
       action="https://app.convertkit.com/forms/4786327/subscriptions"
-      className="seva-form formkit-form"
+      className="seva-form formkit-form mx-auto"
       method="post"
       data-sv-form="4786327"
       data-uid="af506c786d"
