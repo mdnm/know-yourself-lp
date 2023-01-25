@@ -111,7 +111,8 @@ export default function Home() {
 
                 <span>
                   Ele ensinou e ajudou mais de 350 pessoas a conquistarem seu
-                  primeiro emprego na área de TI (inclusive internacionais!)
+                  primeiro emprego na área de TI <br /> (inclusive
+                  internacionais!)
                 </span>
 
                 <a
