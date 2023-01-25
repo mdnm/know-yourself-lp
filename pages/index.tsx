@@ -3,7 +3,7 @@ import Image from "next/image";
 import dinaAvatar from "../public/dina.png";
 import freebiePreview from "../public/freebie-preview.png";
 import matteoAvatar from "../public/matteo.png";
-import ConvertkitSignupForm from "./components/ConvertkitSignupForm";
+import ConvertkitForm from "./components/ConvertkitForm";
 
 export default function Home() {
   return (
@@ -81,9 +81,7 @@ export default function Home() {
                 apesar de ainda não estar empregado 👇🏻
               </span>
             </div>
-            <ConvertkitSignupForm formId="af506c786d">
-              RECEBER CONTEÚDO GRÁTIS + BÔNUS
-            </ConvertkitSignupForm>
+            <ConvertkitForm />
           </div>
 
           <div className="hidden md:block rounded-md max-w-md shadow-md shadow-purple-300 border border-purple-500">
@@ -169,9 +167,7 @@ export default function Home() {
             </div>
           </div>
 
-          <ConvertkitSignupForm formId="af506c786d">
-            RECEBER CONTEÚDO GRÁTIS + BÔNUS
-          </ConvertkitSignupForm>
+          <ConvertkitForm />
         </div>
 
         <h2 className="text-2xl font-bold mb-3">Quem confia em nós</h2>
@@ -194,9 +190,7 @@ export default function Home() {
           className="mb-8"
         ></iframe>
 
-        <ConvertkitSignupForm formId="af506c786d">
-          RECEBER CONTEÚDO GRÁTIS + BÔNUS
-        </ConvertkitSignupForm>
+        <ConvertkitForm />
       </main>
     </>
   );
