@@ -1,5 +1,5 @@
-import { FormEventHandler, useCallback, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { FormEventHandler, useCallback } from "react";
+import { toast } from "react-hot-toast";
 
 const ConvertkitSignupForm: React.FC<
   React.PropsWithChildren<{
@@ -10,8 +10,6 @@ const ConvertkitSignupForm: React.FC<
     name: "name",
     email: "email",
   };
-  const [success, setSuccess] = useState<boolean | undefined>();
-  const { t } = useTranslation("common");
 
   const onSubmit: FormEventHandler = useCallback(
     async (event) => {
@@ -41,26 +39,23 @@ const ConvertkitSignupForm: React.FC<
           body,
         });
 
-        setSuccess(true);
+        toast.success(
+          "Verifique seu e-mail em alguns minutos! (se isso não funcionar, tente abrir a pasta Spam)",
+          {
+            position: "top-right",
+          }
+        );
       } catch {
-        setSuccess(false);
+        toast.error(
+          "Algo deu errado, tente novamente em alguns minutos. Se isso não funcionar, entre em contato conosco em nossas redes sociais.",
+          {
+            position: "top-right",
+          }
+        );
       }
     },
     [formId]
   );
-
-  if (success === false) {
-    return <p>Apologies, an error occurred</p>;
-  }
-
-  if (success) {
-    return (
-      <p>
-        Check out your email in some minutes! (if that doesn&apos;t work, try
-        opening the Spam folder)
-      </p>
-    );
-  }
 
   return (
     <>
@@ -74,7 +69,7 @@ const ConvertkitSignupForm: React.FC<
           className="w-full rounded-md px-3 py-2 text-base md:text-lg text-black"
           name={formData.name}
           aria-label="Name"
-          placeholder={t("name_input_placeholder") as any}
+          placeholder={"Seu nome"}
           required
         />
         <input
@@ -82,12 +77,12 @@ const ConvertkitSignupForm: React.FC<
           className="w-full rounded-md px-3 py-2 text-base md:text-lg text-black"
           name={formData.email}
           aria-label="Email"
-          placeholder={t("email_input_placeholder") as any}
+          placeholder={"seu@email.com"}
           required
         />
 
-        <button className="bg-blue-600 min-w-[6rem] rounded-md text-lg md:text-xl font-bold py-2">
-          {children ?? t("submit_button_text")}
+        <button className="bg-blue-600 hover:bg-blue-800 min-w-[6rem] rounded-md text-lg md:text-xl font-bold py-2">
+          {children ?? "Inscreva-se"}
         </button>
       </form>
     </>
